@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
-from .models import Post, Feedback
+from .models import Post, Feedback, TeamMember
 
 
 #@admin.register(Post)
@@ -19,3 +19,4 @@ from .models import Post, Feedback
 
 admin.site.register(Post)
 admin.site.register(Feedback)
+admin.site.register(TeamMember)

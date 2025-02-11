@@ -45,3 +45,10 @@ class Feedback(models.Model):
     
     class Meta:
         ordering = ["created_on"]
+
+
+class TeamMember(models.Model):
+    name =  models.CharField(max_length=200)
+    title = models.CharField(max_length=200)
+    bio = models.TextField()
+    is_staff = models.BooleanField(default=False)
