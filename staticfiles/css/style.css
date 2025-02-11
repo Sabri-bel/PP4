@@ -8,3 +8,8 @@ body {
     font-weight: 700;
     color: #453721;
 }
+
+.card {
+    border: none;
+    background-color: rgba(6, 6, 6, 0.6)
+}

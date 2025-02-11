@@ -48,7 +48,10 @@ class Feedback(models.Model):
 
 
 class TeamMember(models.Model):
-    name =  models.CharField(max_length=200)
+    name = models.CharField(max_length=200)
     title = models.CharField(max_length=200)
     bio = models.TextField()
     is_staff = models.BooleanField(default=False)
+    
+    def __str__(self):
+        return f"{self.name}"

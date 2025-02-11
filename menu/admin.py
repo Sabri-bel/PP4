@@ -3,20 +3,20 @@ from django_summernote.admin import SummernoteModelAdmin
 from .models import Post, Feedback, TeamMember
 
 
-#@admin.register(Post)
-#class PostAdmin(SummernoteModelAdmin):
-#    """
-#    provide some editor function to the admin panel
-#    """
-#    list_display = ("title", "slug", "status", "created_on")
-#    search_fields = ["title", "content"]
-#    list_filter = ("status", "created_on")
-#    prepopulated_fields = {"slug": ("title",)}
-#    summernote_fields = ("content")
+@admin.register(Post)
+class PostAdmin(SummernoteModelAdmin):
+    """
+    provide some editor function to the admin panel
+    """
+    list_display = ("title", "slug", "status", "created_on")
+    search_fields = ["title", "content"]
+    list_filter = ("status", "created_on")
+    prepopulated_fields = {"slug": ("title",)}
+    summernote_fields = ("content")
 
 
 # Register your models here.
 
-admin.site.register(Post)
+#admin.site.register(Post)
 admin.site.register(Feedback)
 admin.site.register(TeamMember)
