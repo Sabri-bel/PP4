@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
-from .models import Post, Feedback, TeamMember
+from .models import Post, Feedback
 
 # Create your views here.
 
@@ -14,7 +14,7 @@ class PostList(generic.ListView):
 def create_recipe(request):
     if not request.user.is_staff:
         return redirect('login')
-    
+
 
 def post_detail(request, slug):
     queryset = Post.objects.filter(status=1)
