@@ -67,3 +67,16 @@ def comment_edit(request, slug, comment_id):
                              'Something went wrong, try again')
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+
+def delete_comment(request, slug, comment_id):
+    queryset = Post.objects.filter(status=1)
+    post = get_object_or_404(queryset, slug=slug)
+    comment = get_object_or_404(Comment, pk=comment_id)
+    if comment.author == request.user:
+        comment.delete()
+        messages.add_message(request, messages.SUCCESS, 'Comment succesfully deleted!')
+    else:
+        messages.add_message(request, messages.ERROR, 'Unable to delete comment.')
+
+    return HttpResponseRedirect(reverse('post_detail', args=[slug]))
