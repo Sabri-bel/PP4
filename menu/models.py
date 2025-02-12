@@ -25,11 +25,11 @@ class Post(models.Model):
         ordering = ["-created_on"]
 
 
-class Feedback(models.Model):
+class Comment(models.Model):
     post = models.ForeignKey(
                             Post,
                             on_delete=models.CASCADE,
-                            related_name="feedbacks"
+                            related_name="comments"
                             )
     author = models.ForeignKey(
                             User,
