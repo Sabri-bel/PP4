@@ -13,6 +13,10 @@ main {
     color: #453721;
 }
 
+.burger {
+    background-color: rgba(109, 118, 55, 0.5);
+}
+
 .card {
     border: none;
     background-color: rgba(6, 6, 6, 0.6)
@@ -38,8 +42,21 @@ main {
     padding: 1em;
 }
 
+.banner {
+    max-width: 700px;
+    margin: 2em;
+    padding: 1em;
+    background-color: rgba(76, 98, 28, 0.6);
+}
+
 .set-image {
     min-width: 300px;
     min-height: 150px;
     margin-left: auto;
 }
+
+.confirm-btn {
+    background-color: rgba(98, 100, 73, 0.7);
+    padding: 0.5em;
+    margin: 0.5em;
+  }
