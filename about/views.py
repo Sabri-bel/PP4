@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib import messages
-from .models import About
+from .models import About, TeamMember
 from .forms import ReservationForm
 
 # Create your views here.
@@ -22,8 +22,10 @@ def about_me(request):
                                                 },)
 
 
-#def staff(request):
-#    staff = TeamMember.objects.all()
-#    template = "about.html"
-#    
-#    return render(request, template, staff)
+def staff(request):
+    staff = TeamMember.objects.all()
+    template = "about.html"
+    context = {"about": "TeamMember",
+               "staff": staff}
+    
+    return render(request, template, context)

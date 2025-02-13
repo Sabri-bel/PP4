@@ -14,11 +14,6 @@ class PostList(generic.ListView):
     paginate_by = 10
 
 
-def create_recipe(request):
-    if not request.user.is_staff:
-        return redirect('login')
-
-
 def post_detail(request, slug):
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
