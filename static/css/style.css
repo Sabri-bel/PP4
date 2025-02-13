@@ -33,7 +33,13 @@ main {
 }
 
 .block-intro {
-    background-color: rgba(6, 6, 6, 0.6);
+    background-color: rgba(47, 13, 13, 0.6);
     margin: 0.5em;
-    padding: 0.5em;
+    padding: 1em;
+}
+
+.set-image {
+    min-width: 300px;
+    min-height: 150px;
+    margin-left: auto;
 }
