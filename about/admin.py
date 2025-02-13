@@ -12,3 +12,8 @@ class AboutAdmin(SummernoteModelAdmin):
 @admin.register(ReservationRequest)
 class ReservationAdmin(admin.ModelAdmin):
     list_display = ('message', 'read',)
+
+
+@admin.register(TeamMember)
+class StaffAdmin(admin.ModelAdmin):
+    list_staff = ('name', 'title', 'bio')

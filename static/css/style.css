@@ -1,10 +1,14 @@
 body {
+
+}
+
+main {
     background-color: #a4bb47;
 }
 
 .brand {
     font-family: "Indie Flower", sans-serif;
-    font-size: 1.4rem;
+    font-size: 2.4rem;
     font-weight: 700;
     color: #453721;
 }
@@ -17,4 +21,19 @@ body {
 .scale {
     width: 100%;
     height: auto;
+}
+
+.post-link {
+    text-decoration: none;
+    color: #a4bb47;
+}
+
+.post-link:hover {
+    color: #637947;
+}
+
+.block-intro {
+    background-color: rgba(6, 6, 6, 0.6);
+    margin: 0.5em;
+    padding: 0.5em;
 }
