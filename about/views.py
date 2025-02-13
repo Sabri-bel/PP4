@@ -6,7 +6,7 @@ from .forms import ReservationForm
 # Create your views here.
 
 
-def about_me(request):
+def about(request):
     if request.method == "POST":
         reservation_form = ReservationForm(data=request.POST)
         if reservation_form.is_valid():
@@ -15,17 +15,11 @@ def about_me(request):
                                  messages.SUCCESS,
                                  "reservation request submitted! we will reply in 2 working days")
     about = About.objects.all().order_by('updated_on').first()
+    team_members = TeamMember.objects.all()
+
     reservation_form = ReservationForm()
     return render(request, "about/about.html", {
                                                 "about": about,
+                                                "team_members": team_members,
                                                 "reservation_form": reservation_form
                                                 },)
-
-
-def staff(request):
-    staff = TeamMember.objects.all()
-    template = "about.html"
-    context = {"about": "TeamMember",
-               "staff": staff}
-    
-    return render(request, template, context)
