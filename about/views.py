@@ -11,15 +11,19 @@ def about(request):
         reservation_form = ReservationForm(data=request.POST)
         if reservation_form.is_valid():
             reservation_form.save()
-            messages.add_message(request, 
+            messages.add_message(request,
                                  messages.SUCCESS,
-                                 "reservation request submitted! we will reply in 2 working days")
+                                 "reservation request"
+                                 "submitted! we will reply"
+                                 "in 2 working days")
     about = About.objects.all().order_by('updated_on').first()
     team_members = TeamMember.objects.all()
 
     reservation_form = ReservationForm()
-    return render(request, "about/about.html", {
-                                                "about": about,
-                                                "team_members": team_members,
-                                                "reservation_form": reservation_form
-                                                },)
+    return render(request,
+                  "about/about.html",
+                  {
+                    "about": about,
+                    "team_members": team_members,
+                    "reservation_form": reservation_form
+                    },)
