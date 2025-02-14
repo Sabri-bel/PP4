@@ -7,6 +7,15 @@ const deleteCommentButtons = document.getElementsByClassName("btn-delete");
 const deleteConfirmModal = document.getElementById("deleteConfirm");
 
 
+  /**
+* Initializes edit functionality for the provided edit buttons.
+* 
+* For each button in the `editButtons` collection:
+* - Retrieves the associated comment's ID upon click.
+* - Updates the `editConfirm` link's href to point to the 
+*  endpoint for the specific comment.
+*/
+
 for (let button of editButtons) {
     button.addEventListener("click", (e) => {
       let commentId = e.target.getAttribute("data-comment_id");
@@ -17,6 +26,7 @@ for (let button of editButtons) {
     });
   }
 
+  
   /**
 * Initializes deletion functionality for the provided delete buttons.
 * 
