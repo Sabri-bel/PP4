@@ -9,7 +9,7 @@ const deleteConfirmModal = document.getElementById("deleteConfirm");
 
 for (let button of editButtons) {
     button.addEventListener("click", (e) => {
-      let commentId = e.target.getAttribute("comment_id");
+      let commentId = e.target.getAttribute("data-comment_id");
       let commentNew = document.getElementById(`comment${commentId}`).innerText;
       userComment.value = commentNew;
       submitBtn.innerText = "Update";
@@ -20,7 +20,7 @@ for (let button of editButtons) {
 
   for (let button of deleteCommentButtons) {
     button.addEventListener("click", (e) => {
-      let commentId = e.target.getAttribute("comment_id");
+      let commentId = e.target.getAttribute("data-comment_id");
       deleteConfirmModal.href = `delete_comment/${commentId}`;
       CancelButtonModal.show();
     });
