@@ -20,8 +20,6 @@
     <div class="row">
         <div class="col card mb-4  mt-3 left  top">
             <div class="card-body">
-                <!-- The post content goes inside the card-text. -->
-                <!-- Use the | safe filter inside the template tags -->
                 <p class="card-text">
                     {{ post.content | safe }}
                 </p>
@@ -41,18 +39,16 @@
 </div>
   <!-- Displaying Comments -->
 <div class="row">
-    <div class="col-md-8 card mb-4  mt-3 ">
-        <h3>Comments:</h3>
+    <div class="col-12 card">
+        <h2>Comments:</h2>
         <div class="card-body">
-            <!-- We want a for loop inside the empty control tags
-            to iterate through each comment in comments -->
             {% for comment in comments %}
             <div class="p-2 comments
             {% if not comment.approved and comment.author == user %}
             faded{% elif not comment.approved %} d-none{% endif %}">
-            <p class="font-weight-bold">
+            <p class="image-sub">
                 {{ comment.author }}
-                <span class="font-weight-normal">
+                <span>
                 {{ comment.created_on }}
                 </span> wrote:
             </p>
@@ -65,27 +61,26 @@
             </p>
             {% endif %}
             {% if user.is_authenticated and comment.author == user %}
-            <button class="btn btn-edit" comment_id="{{ comment.id }}">Edit</button>
-            <button class="btn btn-delete" comment_id="{{ comment.id }}">Delete</button>
+            <button class="btn btn-edit confirm-btn" comment_id="{{ comment.id }}">Edit</button>
+            <button class="btn btn-delete confirm-btn" comment_id="{{ comment.id }}">Delete</button>
             {% endif %}
             </div>
-            <!-- Our for loop ends here -->
             {% endfor %}
         </div>
     </div>
   </div>
   <!-- Creating New Comments -->
-  <div class="col-md-4 card mb-4 mt-3">
+  <div class="col-12">
     <div class="card-body">
       {% if user.is_authenticated %}
       <h3>Leave a comment:</h3>
-      <p>Posting as: {{ user.username }}</p>
+      <p class="image-sub">Posting as: {{ user.username }}</p>
       <form id="commentForm" method="post"
         style="margin-top: 1.3em;">
         {{ comment_form | crispy }}
         {% csrf_token %}
         <button id="submitButton" type="submit"
-          class="btn btn-signup btn-lg">Submit</button>
+          class="btn btn-signup btn-lg confirm-btn">Submit</button>
       </form>
       {% else %}
       <p>Log in to leave a comment</p>
@@ -100,7 +95,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title"
-          id="deleteModalLabel">Delete comment?</h5>
+          id="deleteModalLabel">Delete comment</h5>
         <button type="button" class="btn-close"
           data-bs-dismiss="modal" aria-label="Close"></button>
       </div>

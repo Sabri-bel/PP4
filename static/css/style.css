@@ -88,3 +88,9 @@ main {
     width: 100%;
     height: auto;
 }
+
+.approval {
+    color: rgb(222, 146, 168);
+    font-size: 80%;
+    font-style: italic;
+}
