@@ -11,7 +11,7 @@
         <div class="col-12 mt-3 left">
             <div class="row">
                 {% for post in post_list %}
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body">
                             <div class="image-container">
@@ -22,7 +22,7 @@
                                 <img class="card-img-top" src=" {{ post.featured_image.url }}" alt="{{ post.title }}">
                                 {% endif %}
                                 
-                                <div class="image-flash">
+                                <div class="image-sub">
                                     <p class="author">Author: {{ post.author }}</p>
                                 </div> 
                             </div>
@@ -37,7 +37,7 @@
                         </div>
                     </div>
                 </div>
-                {% if forloop.counter|divisibleby:2 %}
+                {% if forloop.counter|divisibleby:3 %}
             </div>
             <div class="row">
                 {% endif %}

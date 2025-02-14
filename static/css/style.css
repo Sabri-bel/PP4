@@ -1,5 +1,7 @@
-body {
 
+h2 {
+    color:#85983a;
+    font-weight: 300;
 }
 
 main {
@@ -22,6 +24,11 @@ main {
     background-color: rgba(6, 6, 6, 0.6)
 }
 
+.image-sub {
+    font-size: 80%;
+    color: gray;
+    font-style: italic;
+}
 .scale {
     width: 100%;
     height: auto;
@@ -37,7 +44,7 @@ main {
 }
 
 .block-intro {
-    background-color: rgba(47, 13, 13, 0.6);
+    background-color: rgba(0, 0, 0, 0.6);
     margin: 0.5em;
     padding: 1em;
 }
@@ -50,7 +57,7 @@ main {
 }
 
 .set-image {
-    min-width: 300px;
+    min-width: 200px;
     min-height: 150px;
     margin-left: auto;
 }
@@ -60,3 +67,24 @@ main {
     padding: 0.5em;
     margin: 0.5em;
   }
+
+.dish-detail {
+    margin-top: 10px;
+    height: 33vh;
+    width: 100%;
+}
+
+.title {
+    color:#85983a;
+    font-weight: 500;
+}
+
+.dish-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.scale {
+    width: 100%;
+    height: auto;
+}

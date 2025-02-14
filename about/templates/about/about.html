@@ -5,29 +5,28 @@
 
 
 <div class="container mt-5">
-  <div class="block-intro">
-    <div class="col-4 text-center">
+  <div class="row block-intro">
+    <div class="col-12 text-center">
       <img src="{% static 'images/chef-staff.jpg' %}" width="75%" class="set-image"/>
     </div>
-    <div class="col-8">
+    <div class="col-12 col-md-8">
       <h2>{{ about.title }}</h2>
       {{ about.content | safe }}
     </div>
   </div>
-  <div class="row">
-    <div class="col text-right">
-      <!-- Updated on field goes in here -->
-
+  <div class="col-12 col-md-8">
+    <div class="col text-right image-sub">
       <p class="text-end"><em>Updated on: {{ about.updated_on }}</em></p>
     </div>
+
+  <!--reservation form-->
   </div>
-  <div class="row justify-content-center">
-    <div class="block-intro">
+  <div class="container">
+    <div class="md-5 block-intro">
         <h2>Reservation Request</h2>
         <p>Our Restaurant is walk-in, but if you have a special
           anniversary, just fill the form below for a reservation!
           We will do our best to accomodate our guests or any special needs.
-
         </p>
 
         <form method="post">
@@ -36,12 +35,14 @@
           <button class="btn btn-secondary" type="submit">Reservate</button>
         </form>
     </div>
-    <div class="block-intro">
+    <!--staff presentation-->
+    <div class="md-5 block-intro">
       <h2>Meet our Staff</h2>
       {% for team_member in team_members %}
-      <div class="col-8">
-        <h2>{{ team_member.title }}</h2>
-        {{ team_member.bio }}
+      <div class="col-12 block-intro">
+        <h2>{{ team_member.name }}</h2>
+        <h3 class="image-sub">{{ team_member.title }}</h3>
+        <p>{{ team_member.bio }}</p>
       </div>
       {% endfor %}
     </div>
