@@ -19,3 +19,6 @@ class PostAdmin(SummernoteModelAdmin):
 
 
 admin.site.register(Comment)
+"""
+Lists message and read fields for comment display in admin
+"""

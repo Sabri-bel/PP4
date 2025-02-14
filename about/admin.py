@@ -7,14 +7,23 @@ from .models import About, TeamMember, ReservationRequest
 
 @admin.register(About)
 class AboutAdmin(SummernoteModelAdmin):
+    """
+    Adds rich-text editing of content in admin
+    """
     summernote_fields = ('content',)
 
 
 @admin.register(ReservationRequest)
 class ReservationAdmin(admin.ModelAdmin):
+    """
+    Lists message and read fields for display in admin
+    """
     list_display = ('message', 'read',)
 
 
 @admin.register(TeamMember)
 class StaffAdmin(admin.ModelAdmin):
+    """
+    Lists details about the staff member fields for display in admin
+    """
     list_staff = ('name', 'title', 'bio')

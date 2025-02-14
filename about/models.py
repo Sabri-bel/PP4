@@ -4,6 +4,9 @@ from django.db import models
 
 
 class About(models.Model):
+    """
+    Stores a single about me record.
+    """
     title = models.CharField(max_length=200)
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
@@ -13,6 +16,9 @@ class About(models.Model):
 
 
 class TeamMember(models.Model):
+    """
+    Store a single team member information
+    """
     name = models.CharField(max_length=200)
     title = models.CharField(max_length=200)
     bio = models.TextField()
@@ -22,6 +28,9 @@ class TeamMember(models.Model):
 
 
 class ReservationRequest(models.Model):
+    """
+    Stores a single reservation request message
+    """
     name = models.CharField(max_length=200)
     email = models.EmailField()
     res_date = models.DateTimeField(auto_now=True)

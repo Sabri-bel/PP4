@@ -7,6 +7,20 @@ from .forms import ReservationForm
 
 
 def about(request):
+    """
+    render the most recent information on the website restaurant information
+    and restaurant staff, and allow reservation request
+    Displays an individual instance of :model:`about.About`
+    ***context***
+    ``about``
+        the most recent instance of instance of :model:`about.About`
+    ``team member``
+        all the records related to the :model:`about.TeamMember`
+    ``reservation form``
+        an instance of :form:`about.ReservationForm`
+    :template: about/about.html
+
+    """
     if request.method == "POST":
         reservation_form = ReservationForm(data=request.POST)
         if reservation_form.is_valid():

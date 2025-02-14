@@ -9,12 +9,32 @@ from .forms import CommentForm
 
 
 class PostList(generic.ListView):
+    """
+    display the home page
+    """
     queryset = Post.objects.all()
     template_name = "menu/index.html"
     paginate_by = 10
 
 
 def post_detail(request, slug):
+    """
+    display an individual :model:`menu.Post`
+
+    ***context***
+
+    ``post``
+        an instance of :model:`menu.Post`
+    ``comments``
+        all approved comments related to the post
+    ``comment_count``
+        a count of all the approved comment related to the post
+    ``comment_form``
+        an instance of :form:`menu.CommentForm`
+
+    **template**
+    :template:`menu/post_detail.html`
+    """
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
     comments = post.comments.all().order_by("-created_on")
@@ -44,6 +64,19 @@ def post_detail(request, slug):
 
 
 def comment_edit(request, slug, comment_id):
+    """
+    display an individual comment for edit
+
+    **context**
+
+    ``post``
+        an instance of :model:`menu.Post`
+    ``comment``
+        a single comment related to the post
+    ``comment_form``
+        an instance of :form:`menu.CommentForm`
+
+    """
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
     comment = get_object_or_404(Comment, pk=comment_id)
@@ -65,6 +98,16 @@ def comment_edit(request, slug, comment_id):
 
 
 def delete_comment(request, slug, comment_id):
+    """
+    delete an individual comment
+
+    **context**
+
+    ``post``
+        an instance of :model:`menu.Post`
+    ``comment``
+        a single comment related to the post
+    """
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
     comment = get_object_or_404(Comment, pk=comment_id)
